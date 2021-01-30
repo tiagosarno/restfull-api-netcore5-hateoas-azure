@@ -1,3 +1,5 @@
+using harmonicus.Services;
+using harmonicus.Services.Implementations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,6 +29,9 @@ namespace harmonicus
         {
 
             services.AddControllers();
+
+            // Dependency Injection
+            services.AddScoped<IPsychologistService, PsychologistServiceImplementation>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
