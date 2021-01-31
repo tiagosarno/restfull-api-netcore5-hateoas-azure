@@ -10,5 +10,6 @@ namespace harmonicus.Model.Context
         }
         public MySQLContext(DbContextOptions<MySQLContext> options) : base(options){}
         public DbSet<Psychologist> Psychologists { get; set; }
+        public DbSet<Patient> Patients { get; set; }
     }
 }

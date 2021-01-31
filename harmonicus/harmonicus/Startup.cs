@@ -49,9 +49,14 @@ namespace harmonicus
             // Versioning API
             services.AddApiVersioning();
 
-            // Dependency Injection
+            // Dependency Injections
+
+            // Psychologists
             services.AddScoped<IPsychologistBusiness, PsychologistBusinessImplementation>();
             services.AddScoped<IPsychologistRepository, PsychologistRepositoryImplementation>();
+            // Patients
+            services.AddScoped<IPatientBusiness, PatientBusinessImplementation>();
+            services.AddScoped<IPatientRepository, PatientRepositoryImplementation>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
