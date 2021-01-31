@@ -6,13 +6,13 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace harmonicus.Services.Implementations
+namespace harmonicus.Repository.Implementations
 {
-    public class PsychologistServiceImplementation : IPsychologistService
+    public class PsychologistRepositoryImplementation : IPsychologistRepository
     {
         private MySQLContext _context;
 
-        public PsychologistServiceImplementation(MySQLContext context)
+        public PsychologistRepositoryImplementation(MySQLContext context)
         {
             _context = context;
         }
@@ -43,7 +43,7 @@ namespace harmonicus.Services.Implementations
 
         public Psychologist Update(Psychologist psychologist)
         {
-            if (!Exists(psychologist.Id)) return new Psychologist();
+            if (!Exists(psychologist.Id)) return null;
             
             var result = _context.Psychologists.SingleOrDefault(p => p.Id.Equals(psychologist.Id));
 
@@ -83,7 +83,7 @@ namespace harmonicus.Services.Implementations
 
         }
 
-        private bool Exists(long id)
+        public bool Exists(long id)
         {
             return _context.Psychologists.Any(p => p.Id.Equals(id));
         }

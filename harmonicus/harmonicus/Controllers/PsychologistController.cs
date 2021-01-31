@@ -1,37 +1,34 @@
 ﻿using harmonicus.Model;
-using harmonicus.Services;
+using harmonicus.Business;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace harmonicus.Controllers
 {
+    [ApiVersion("1")]
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/v{version:apiVersion}")]
     public class PsychologistController : ControllerBase
     {
         private readonly ILogger<PsychologistController> _logger;
-        private IPsychologistService _psychologistService;
+        private IPsychologistBusiness _psychologistBusiness;
 
-        public PsychologistController(ILogger<PsychologistController> logger, IPsychologistService psychologistService)
+        public PsychologistController(ILogger<PsychologistController> logger, IPsychologistBusiness psychologistBusiness)
         {
             _logger = logger;
-            _psychologistService = psychologistService;
+            _psychologistBusiness = psychologistBusiness;
         }
 
         [HttpGet]
         public IActionResult Get()
         {            
-            return Ok(_psychologistService.FindAll());
+            return Ok(_psychologistBusiness.FindAll());
         }
 
         [HttpGet("{id}")]
         public IActionResult Get(long id)
         {
-            var psychologist = _psychologistService.FindById(id);
+            var psychologist = _psychologistBusiness.FindById(id);
             if (psychologist == null) return NotFound();
             return Ok(psychologist);
         }
@@ -40,20 +37,20 @@ namespace harmonicus.Controllers
         public IActionResult Post([FromBody] Psychologist psychologist)
         {
             if (psychologist == null) return BadRequest();
-            return Ok(_psychologistService.Create(psychologist));
+            return Ok(_psychologistBusiness.Create(psychologist));
         }
 
         [HttpPut]
         public IActionResult Put([FromBody] Psychologist psychologist)
         {
             if (psychologist == null) return BadRequest();
-            return Ok(_psychologistService.Update(psychologist));
+            return Ok(_psychologistBusiness.Update(psychologist));
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {
-            _psychologistService.Delete(id);
+            _psychologistBusiness.Delete(id);
             return NoContent();
         }
     }

@@ -1,9 +1,9 @@
 ﻿using harmonicus.Model;
 using System.Collections.Generic;
 
-namespace harmonicus.Services
+namespace harmonicus.Business
 {
-    public interface IPsychologistService
+    public interface IPsychologistBusiness
     {
         Psychologist Create(Psychologist psychologist);
         Psychologist FindById(long id);
