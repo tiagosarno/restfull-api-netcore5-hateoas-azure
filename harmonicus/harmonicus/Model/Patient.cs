@@ -1,16 +1,12 @@
-﻿using System;
+﻿using harmonicus.Model.Base;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace harmonicus.Model
 {
     [Table("patient")]
-    public class Patient
+    public class Patient : BaseEntity
     {
-        [Column("id")]
-        public long Id { get; set; }
 
         [Column("first_name")]
         public string FirstName { get; set; }
@@ -29,5 +25,7 @@ namespace harmonicus.Model
 
         [Column("cpf")]
         public string Cpf { get; set; }
+
+        public ICollection<Schedule> Schedules { get; set; }
     }
 }

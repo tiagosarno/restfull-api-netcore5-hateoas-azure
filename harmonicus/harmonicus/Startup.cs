@@ -3,20 +3,15 @@ using harmonicus.Business;
 using harmonicus.Business.Implementations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using harmonicus.Repository;
-using harmonicus.Repository.Implementations;
 using Serilog;
+using harmonicus.Repository.Generic;
 
 namespace harmonicus
 {
@@ -53,10 +48,14 @@ namespace harmonicus
 
             // Psychologists
             services.AddScoped<IPsychologistBusiness, PsychologistBusinessImplementation>();
-            services.AddScoped<IPsychologistRepository, PsychologistRepositoryImplementation>();
+
             // Patients
             services.AddScoped<IPatientBusiness, PatientBusinessImplementation>();
-            services.AddScoped<IPatientRepository, PatientRepositoryImplementation>();
+
+            // Schedule
+            services.AddScoped<IScheduleBusiness, ScheduleBusinessImplementation>();
+
+            services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

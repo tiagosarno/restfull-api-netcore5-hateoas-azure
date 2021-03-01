@@ -1,19 +1,14 @@
 ﻿using harmonicus.Model;
-using harmonicus.Model.Context;
 using harmonicus.Repository;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace harmonicus.Business.Implementations
 {
     public class PsychologistBusinessImplementation : IPsychologistBusiness
     {
-        private readonly IPsychologistRepository _repository;
+        private readonly IRepository<Psychologist> _repository;
 
-        public PsychologistBusinessImplementation(IPsychologistRepository repository)
+        public PsychologistBusinessImplementation(IRepository<Psychologist> repository)
         {
             _repository = repository;
         }
