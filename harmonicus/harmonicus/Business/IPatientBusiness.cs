@@ -1,14 +1,14 @@
-﻿using harmonicus.Model;
+﻿using harmonicus.Data.VO;
 using System.Collections.Generic;
 
 namespace harmonicus.Business
 {
     public interface IPatientBusiness
     {
-        Patient Create(Patient patient);
-        Patient FindById(long id);
-        List<Patient> FindAll();
-        Patient Update(Patient patient);
+        PatientVO Create(PatientVO patient);
+        PatientVO FindById(long id);
+        List<PatientVO> FindAll();
+        PatientVO Update(PatientVO patient);
         void Delete(long id);
     }
 }
