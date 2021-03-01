@@ -1,4 +1,6 @@
-﻿using harmonicus.Model;
+﻿using harmonicus.Data.Converter.Implementations;
+using harmonicus.Data.VO;
+using harmonicus.Model;
 using harmonicus.Repository;
 using System.Collections.Generic;
 
@@ -8,28 +10,35 @@ namespace harmonicus.Business.Implementations
     {
         private readonly IRepository<Patient> _repository;
 
+        private readonly PatientConverter _converter;
+
         public PatientBusinessImplementation(IRepository<Patient> repository)
         {
             _repository = repository;
+            _converter = new PatientConverter();
         }
-        public List<Patient> FindAll()
+        public List<PatientVO> FindAll()
         {
-            return _repository.FindAll();
-        }
-
-        public Patient FindById(long id)
-        {
-            return _repository.FindById(id);
+            return _converter.Parse(_repository.FindAll());
         }
 
-        public Patient Create(Patient patient)
+        public PatientVO FindById(long id)
         {
-            return _repository.Create(patient);
+            return _converter.Parse(_repository.FindById(id));
         }
 
-        public Patient Update(Patient patient)
+        public PatientVO Create(PatientVO patient)
         {
-            return _repository.Update(patient);
+            var patientEntity = _converter.Parse(patient);
+            patientEntity = _repository.Create(patientEntity);
+            return _converter.Parse(patientEntity);
+        }
+
+        public PatientVO Update(PatientVO patient)
+        {
+            var patientEntity = _converter.Parse(patient);
+            patientEntity = _repository.Update(patientEntity);
+            return _converter.Parse(patientEntity);
         }
 
         public void Delete(long id)
