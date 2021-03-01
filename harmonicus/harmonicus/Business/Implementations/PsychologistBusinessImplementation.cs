@@ -1,4 +1,6 @@
-﻿using harmonicus.Model;
+﻿using harmonicus.Data.Converter.Implementations;
+using harmonicus.Data.VO;
+using harmonicus.Model;
 using harmonicus.Repository;
 using System.Collections.Generic;
 
@@ -8,28 +10,36 @@ namespace harmonicus.Business.Implementations
     {
         private readonly IRepository<Psychologist> _repository;
 
+        private readonly PsychologistConverter _converter;
+
         public PsychologistBusinessImplementation(IRepository<Psychologist> repository)
         {
             _repository = repository;
-        }
-        public List<Psychologist> FindAll()
-        {
-            return _repository.FindAll();
+            _converter = new PsychologistConverter();
         }
 
-        public Psychologist FindById(long id)
+        public List<PsychologistVO> FindAll()
         {
-            return _repository.FindById(id);
+            return _converter.Parse(_repository.FindAll());
         }
 
-        public Psychologist Create(Psychologist psychologist)
+        public PsychologistVO FindById(long id)
         {
-            return _repository.Create(psychologist);
+            return _converter.Parse(_repository.FindById(id));
         }
 
-        public Psychologist Update(Psychologist psychologist)
+        public PsychologistVO Create(PsychologistVO psychologist)
         {
-            return _repository.Update(psychologist);
+            var psychologistEntity = _converter.Parse(psychologist);
+            psychologistEntity = _repository.Create(psychologistEntity);
+            return _converter.Parse(psychologistEntity);
+        }
+
+        public PsychologistVO Update(PsychologistVO psychologist)
+        {
+            var psychologistEntity = _converter.Parse(psychologist);
+            psychologistEntity = _repository.Update(psychologistEntity);
+            return _converter.Parse(psychologistEntity);
         }
 
         public void Delete(long id)
