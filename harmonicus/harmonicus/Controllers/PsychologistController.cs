@@ -1,7 +1,7 @@
-﻿using harmonicus.Model;
-using harmonicus.Business;
+﻿using harmonicus.Business;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using harmonicus.Data.VO;
 
 namespace harmonicus.Controllers
 {
@@ -34,14 +34,14 @@ namespace harmonicus.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Psychologist psychologist)
+        public IActionResult Post([FromBody] PsychologistVO psychologist)
         {
             if (psychologist == null) return BadRequest();
             return Ok(_psychologistBusiness.Create(psychologist));
         }
 
         [HttpPut]
-        public IActionResult Put([FromBody] Psychologist psychologist)
+        public IActionResult Put([FromBody] PsychologistVO psychologist)
         {
             if (psychologist == null) return BadRequest();
             return Ok(_psychologistBusiness.Update(psychologist));
