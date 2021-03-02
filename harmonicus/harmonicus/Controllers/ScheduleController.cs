@@ -1,7 +1,7 @@
-﻿using harmonicus.Model;
-using harmonicus.Business;
+﻿using harmonicus.Business;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using harmonicus.Data.VO;
 
 namespace harmonicus.Controllers
 {
@@ -34,14 +34,14 @@ namespace harmonicus.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Schedule schedule)
+        public IActionResult Post([FromBody] ScheduleVO schedule)
         {
             if (schedule == null) return BadRequest();
             return Ok(_scheduleBusiness.Create(schedule));
         }
 
         [HttpPut]
-        public IActionResult Put([FromBody] Schedule schedule)
+        public IActionResult Put([FromBody] ScheduleVO schedule)
         {
             if (schedule == null) return BadRequest();
             return Ok(_scheduleBusiness.Update(schedule));

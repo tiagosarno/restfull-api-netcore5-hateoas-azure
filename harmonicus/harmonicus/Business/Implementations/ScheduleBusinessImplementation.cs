@@ -1,4 +1,6 @@
-﻿using harmonicus.Model;
+﻿using harmonicus.Data.Converter.Implementations;
+using harmonicus.Data.VO;
+using harmonicus.Model;
 using harmonicus.Repository;
 using System.Collections.Generic;
 
@@ -8,28 +10,35 @@ namespace harmonicus.Business.Implementations
     {
         private readonly IRepository<Schedule> _repository;
 
+        private readonly ScheduleConverter _converter;
+
         public ScheduleBusinessImplementation(IRepository<Schedule> repository)
         {
             _repository = repository;
+            _converter = new ScheduleConverter();
         }
-        public List<Schedule> FindAll()
+        public List<ScheduleVO> FindAll()
         {
-            return _repository.FindAll();
-        }
-
-        public Schedule FindById(long id)
-        {
-            return _repository.FindById(id);
+            return _converter.Parse(_repository.FindAll());
         }
 
-        public Schedule Create(Schedule schedule)
+        public ScheduleVO FindById(long id)
         {
-            return _repository.Create(schedule);
+            return _converter.Parse(_repository.FindById(id));
         }
 
-        public Schedule Update(Schedule schedule)
+        public ScheduleVO Create(ScheduleVO schedule)
         {
-            return _repository.Update(schedule);
+            var scheduleEntity = _converter.Parse(schedule);
+            scheduleEntity = _repository.Create(scheduleEntity);
+            return _converter.Parse(scheduleEntity);
+        }
+
+        public ScheduleVO Update(ScheduleVO schedule)
+        {
+            var scheduleEntity = _converter.Parse(schedule);
+            scheduleEntity = _repository.Update(scheduleEntity);
+            return _converter.Parse(scheduleEntity);
         }
 
         public void Delete(long id)

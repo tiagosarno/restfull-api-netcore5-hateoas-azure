@@ -1,14 +1,14 @@
-﻿using harmonicus.Model;
+﻿using harmonicus.Data.VO;
 using System.Collections.Generic;
 
 namespace harmonicus.Business
 {
     public interface IScheduleBusiness
     {
-        Schedule Create(Schedule schedule);
-        Schedule FindById(long id);
-        List<Schedule> FindAll();
-        Schedule Update(Schedule schedule);
+        ScheduleVO Create(ScheduleVO schedule);
+        ScheduleVO FindById(long id);
+        List<ScheduleVO> FindAll();
+        ScheduleVO Update(ScheduleVO schedule);
         void Delete(long id);
     }
 }
