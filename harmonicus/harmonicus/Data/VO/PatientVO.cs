@@ -42,5 +42,9 @@ namespace harmonicus.Data.VO
 
         public int Status { get; set; }
 
+        public string AuthorizationTerm { get; set; }
+
+        public string ResponsibleCpf { get; set; }
+
     }
 }

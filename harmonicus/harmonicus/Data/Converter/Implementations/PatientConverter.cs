@@ -31,7 +31,9 @@ namespace harmonicus.Data.Converter.Implementations
                 Country = origin.Country,
                 Avatar = origin.Avatar,
                 BirthDate = origin.BirthDate,
-                Status = origin.Status
+                Status = origin.Status,
+                AuthorizationTerm = origin.AuthorizationTerm,
+                ResponsibleCpf = origin.ResponsibleCpf
             };
         }
 
@@ -58,7 +60,9 @@ namespace harmonicus.Data.Converter.Implementations
                 Country = origin.Country,
                 Avatar = origin.Avatar,
                 BirthDate = origin.BirthDate,
-                Status = origin.Status
+                Status = origin.Status,
+                AuthorizationTerm = origin.AuthorizationTerm,
+                ResponsibleCpf = origin.ResponsibleCpf
             };
         }
 
