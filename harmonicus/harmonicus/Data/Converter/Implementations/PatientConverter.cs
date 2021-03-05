@@ -19,7 +19,19 @@ namespace harmonicus.Data.Converter.Implementations
                 Address = origin.Address,
                 Gender = origin.Gender,
                 Email = origin.Email,
-                Cpf = origin.Cpf
+                Cpf = origin.Cpf,
+                Phone = origin.Phone,
+                PhoneIsWhatsApp = origin.PhoneIsWhatsApp,
+                HowFindHarmonicus = origin.HowFindHarmonicus,
+                KnowZoom = origin.KnowZoom,
+                KnowGoogleMeeting = origin.KnowGoogleMeeting,
+                KnowSkype = origin.KnowSkype,
+                City = origin.City,
+                State = origin.State,
+                Country = origin.Country,
+                Avatar = origin.Avatar,
+                BirthDate = origin.BirthDate,
+                Status = origin.Status
             };
         }
 
@@ -34,7 +46,19 @@ namespace harmonicus.Data.Converter.Implementations
                 Address = origin.Address,
                 Gender = origin.Gender,
                 Email = origin.Email,
-                Cpf = origin.Cpf
+                Cpf = origin.Cpf,
+                Phone = origin.Phone,
+                PhoneIsWhatsApp = origin.PhoneIsWhatsApp,
+                HowFindHarmonicus = origin.HowFindHarmonicus,
+                KnowZoom = origin.KnowZoom,
+                KnowGoogleMeeting = origin.KnowGoogleMeeting,
+                KnowSkype = origin.KnowSkype,
+                City = origin.City,
+                State = origin.State,
+                Country = origin.Country,
+                Avatar = origin.Avatar,
+                BirthDate = origin.BirthDate,
+                Status = origin.Status
             };
         }
 
