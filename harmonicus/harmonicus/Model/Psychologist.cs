@@ -60,6 +60,54 @@ namespace harmonicus.Model
         [Column("country")]
         public string Country { get; set; }
 
+        [Column("avatar")]
+        public string Avatar { get; set; }
+
+        [Column("birth_date")]
+        public DateTime BirthDate { get; set; }
+
+        [Column("crp_region")]
+        public string CrpRegion { get; set; }
+
+        [Column("file_crp")]
+        public string FileCrp { get; set; }
+
+        [Column("file_university_degree")]
+        public string FileUniversityDegree { get; set; }
+
+        [Column("lates_url")]
+        public string LatesUrl { get; set; }
+
+        [Column("profissional_title")]
+        public string ProfissionalTitle { get; set; }
+
+        [Column("short_profile_text")]
+        public string ShortProfileText { get; set; }
+
+        [Column("completed_training_courses")]
+        public string CompletedTrainingCourses { get; set; }
+
+        [Column("commercial_cep")]
+        public string CommercialCep { get; set; }
+
+        [Column("commercial_number")]
+        public int CommercialNumber { get; set; }
+
+        [Column("commercial_street")]
+        public string CommercialStreet { get; set; }
+
+        [Column("commercial_street_add_on")]
+        public string CommercialStreetAddOn { get; set; }
+
+        [Column("commercial_district")]
+        public string CommercialDistrict { get; set; }
+
+        [Column("commercial_city")]
+        public string CommercialCity { get; set; }
+
+        [Column("commercial_state")]
+        public string CommercialState { get; set; }
+
         public ICollection<Schedule> Schedules { get; set;  }
     }
 }

@@ -39,5 +39,37 @@ namespace harmonicus.Data.VO
         public string State { get; set; }
 
         public string Country { get; set; }
+
+        public string Avatar { get; set; }
+
+        public DateTime BirthDate { get; set; }
+
+        public string CrpRegion { get; set; }
+
+        public string FileCrp { get; set; }
+
+        public string FileUniversityDegree { get; set; }
+
+        public string LatesUrl { get; set; }
+
+        public string ProfissionalTitle { get; set; }
+
+        public string ShortProfileText { get; set; }
+
+        public string CompletedTrainingCourses { get; set; }
+
+        public string CommercialCep { get; set; }
+
+        public int CommercialNumber { get; set; }
+
+        public string CommercialStreet { get; set; }
+
+        public string CommercialStreetAddOn { get; set; }
+
+        public string CommercialDistrict { get; set; }
+
+        public string CommercialCity { get; set; }
+
+        public string CommercialState { get; set; }
     }
 }
