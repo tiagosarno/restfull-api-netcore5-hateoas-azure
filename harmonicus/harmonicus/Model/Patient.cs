@@ -63,6 +63,12 @@ namespace harmonicus.Model
         [Column("status")]
         public int Status { get; set; }
 
+        [Column("authorization_term")]
+        public string AuthorizationTerm { get; set; }
+
+        [Column("responsible_cpf")]
+        public string ResponsibleCpf { get; set; }
+
         public ICollection<Schedule> Schedules { get; set; }
     }
 }

@@ -1,12 +1,12 @@
--- harmonicus.patients definition
+-- harmonicus.patient definition
 
 CREATE TABLE `patient` (
-  `id` bigint NOT NULL AUTO_INCREMENT,  
-  `first_name` varchar(80) NOT NULL,  
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(80) NOT NULL,
   `last_name` varchar(80) NOT NULL,
   `email` varchar(160) NOT NULL,
   `cpf` varchar(11) NOT NULL,
-  `address` varchar(100) NULL,
+  `address` varchar(100) DEFAULT NULL,
   `gender` varchar(6) NOT NULL,
   `phone` bigint DEFAULT NULL,
   `phone_is_whatsapp` int DEFAULT NULL,
@@ -20,5 +20,7 @@ CREATE TABLE `patient` (
   `avatar` varchar(150) DEFAULT NULL,
   `birth_date` date DEFAULT NULL,
   `status` int DEFAULT NULL,
+  `authorization_term` varchar(150) DEFAULT NULL,
+  `responsible_cpf` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
