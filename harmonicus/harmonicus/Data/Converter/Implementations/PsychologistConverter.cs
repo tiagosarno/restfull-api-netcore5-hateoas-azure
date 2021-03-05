@@ -30,7 +30,23 @@ namespace harmonicus.Data.Converter.Implementations
                 KnowSkype = origin.KnowSkype,
                 City = origin.City,
                 State = origin.State,
-                Country = origin.Country
+                Country = origin.Country,
+                Avatar = origin.Avatar,
+                BirthDate = origin.BirthDate,
+                CrpRegion = origin.CrpRegion,
+                FileCrp = origin.FileCrp,
+                FileUniversityDegree = origin.FileUniversityDegree,
+                LatesUrl = origin.LatesUrl,
+                ProfissionalTitle = origin.ProfissionalTitle,
+                ShortProfileText = origin.ShortProfileText,
+                CompletedTrainingCourses = origin.CompletedTrainingCourses,
+                CommercialCep = origin.CommercialCep,
+                CommercialNumber = origin.CommercialNumber,
+                CommercialStreet = origin.CommercialStreet,
+                CommercialStreetAddOn = origin.CommercialStreetAddOn,
+                CommercialDistrict = origin.CommercialDistrict,
+                CommercialCity = origin.CommercialCity,
+                CommercialState = origin.CommercialState
             };
         }
 
@@ -56,7 +72,23 @@ namespace harmonicus.Data.Converter.Implementations
                 KnowSkype = origin.KnowSkype,
                 City = origin.City,
                 State = origin.State,
-                Country = origin.Country
+                Country = origin.Country,
+                Avatar = origin.Avatar,
+                BirthDate = origin.BirthDate,
+                CrpRegion = origin.CrpRegion,
+                FileCrp = origin.FileCrp,
+                FileUniversityDegree = origin.FileUniversityDegree,
+                LatesUrl = origin.LatesUrl,
+                ProfissionalTitle = origin.ProfissionalTitle,
+                ShortProfileText = origin.ShortProfileText,
+                CompletedTrainingCourses = origin.CompletedTrainingCourses,
+                CommercialCep = origin.CommercialCep,
+                CommercialNumber = origin.CommercialNumber,
+                CommercialStreet = origin.CommercialStreet,
+                CommercialStreetAddOn = origin.CommercialStreetAddOn,
+                CommercialDistrict = origin.CommercialDistrict,
+                CommercialCity = origin.CommercialCity,
+                CommercialState = origin.CommercialState
             };
         }
 

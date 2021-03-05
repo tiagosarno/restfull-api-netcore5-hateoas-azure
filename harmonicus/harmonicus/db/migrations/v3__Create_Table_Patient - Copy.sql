@@ -8,5 +8,17 @@ CREATE TABLE `patient` (
   `cpf` varchar(11) NOT NULL,
   `address` varchar(100) NULL,
   `gender` varchar(6) NOT NULL,
+  `phone` bigint DEFAULT NULL,
+  `phone_is_whatsapp` int DEFAULT NULL,
+  `how_find_harmonicus` varchar(100) DEFAULT NULL,
+  `know_zoom` int DEFAULT NULL,
+  `know_google_meeting` int DEFAULT NULL,
+  `know_skype` int DEFAULT NULL,
+  `city` varchar(140) DEFAULT NULL,
+  `state` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `country` varchar(70) DEFAULT NULL,
+  `avatar` varchar(150) DEFAULT NULL,
+  `birth_date` date DEFAULT NULL,
+  `status` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
