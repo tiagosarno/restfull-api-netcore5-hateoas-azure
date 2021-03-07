@@ -17,7 +17,9 @@ namespace harmonicus.Data.Converter.Implementations
                 Date = origin.Date,
                 Hour = origin.Hour,
                 PsychologistId = origin.PsychologistId,
-                PatientId = origin.PatientId
+                PatientId = origin.PatientId,
+                Status = origin.Status,
+                NewDate = origin.NewDate
             };
         }
 
@@ -30,7 +32,9 @@ namespace harmonicus.Data.Converter.Implementations
                 Date = origin.Date,
                 Hour = origin.Hour,
                 PsychologistId = origin.PsychologistId,
-                PatientId = origin.PatientId
+                PatientId = origin.PatientId,
+                Status = origin.Status,
+                NewDate = origin.NewDate
             };
         }
 

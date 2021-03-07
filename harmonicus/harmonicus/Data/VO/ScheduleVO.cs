@@ -13,5 +13,9 @@ namespace harmonicus.Data.VO
         public long PsychologistId { get; set; }
 
         public long PatientId { get; set; }
+
+        public long Status { get; set; }
+
+        public DateTime NewDate { get; set; }
     }
 }

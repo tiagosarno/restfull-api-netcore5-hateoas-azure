@@ -27,5 +27,11 @@ namespace harmonicus.Model
         public long PatientId { get; set; }
 
         public Patient Patient { get; set; }
+
+        [Column("status")]
+        public long Status { get; set; }
+
+        [Column("new_date")]
+        public DateTime NewDate { get; set; }
     }
 }
