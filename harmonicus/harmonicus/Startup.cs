@@ -34,7 +34,14 @@ namespace harmonicus
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {            
+        {
+
+            services.AddCors(options => options.AddDefaultPolicy(builder => {
+                builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            }));
+
             services.AddControllers();
 
             var connection = Configuration["MySQLConnection:MySQLConnectionString"];
@@ -96,6 +103,8 @@ namespace harmonicus
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseSwagger();
 
