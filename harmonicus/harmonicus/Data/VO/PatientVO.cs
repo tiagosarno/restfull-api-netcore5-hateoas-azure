@@ -1,8 +1,11 @@
-﻿using System;
+﻿using harmonicus.Hypermedia;
+using harmonicus.Hypermedia.Abstract;
+using System;
+using System.Collections.Generic;
 
 namespace harmonicus.Data.VO
 {
-    public class PatientVO
+    public class PatientVO : ISupportsHyperMedia
     {
         public long Id { get; set; }
 
@@ -45,6 +48,6 @@ namespace harmonicus.Data.VO
         public string AuthorizationTerm { get; set; }
 
         public string ResponsibleCpf { get; set; }
-
+        public List<HyperMediaLink> Links { get; set; } = new List<HyperMediaLink>();
     }
 }
