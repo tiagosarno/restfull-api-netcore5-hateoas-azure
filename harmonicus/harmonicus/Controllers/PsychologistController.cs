@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using harmonicus.Data.VO;
+using harmonicus.Hypermedia.Filters;
 
 namespace harmonicus.Controllers
 {
@@ -20,12 +21,14 @@ namespace harmonicus.Controllers
         }
 
         [HttpGet]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get()
         {            
             return Ok(_psychologistBusiness.FindAll());
         }
 
         [HttpGet("{id}")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get(long id)
         {
             var psychologist = _psychologistBusiness.FindById(id);
@@ -34,6 +37,7 @@ namespace harmonicus.Controllers
         }
 
         [HttpPost]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Post([FromBody] PsychologistVO psychologist)
         {
             if (psychologist == null) return BadRequest();
@@ -41,6 +45,7 @@ namespace harmonicus.Controllers
         }
 
         [HttpPut]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Put([FromBody] PsychologistVO psychologist)
         {
             if (psychologist == null) return BadRequest();

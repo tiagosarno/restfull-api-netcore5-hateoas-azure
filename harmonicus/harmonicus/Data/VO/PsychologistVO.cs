@@ -1,8 +1,11 @@
-﻿using System;
+﻿using harmonicus.Hypermedia;
+using harmonicus.Hypermedia.Abstract;
+using System;
+using System.Collections.Generic;
 
 namespace harmonicus.Data.VO
 {
-    public class PsychologistVO
+    public class PsychologistVO : ISupportsHyperMedia
     {
         public long Id { get; set; }
 
@@ -71,5 +74,7 @@ namespace harmonicus.Data.VO
         public string CommercialCity { get; set; }
 
         public string CommercialState { get; set; }
+
+        public List<HyperMediaLink> Links { get; set; } = new List<HyperMediaLink>();
     }
 }

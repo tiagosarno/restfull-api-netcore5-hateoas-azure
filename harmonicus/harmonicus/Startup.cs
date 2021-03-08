@@ -48,6 +48,7 @@ namespace harmonicus
             var filterOptions = new HyperMediaFilterOptions();
 
             filterOptions.ContentResponseEnricherList.Add(new PatientEnricher());
+            filterOptions.ContentResponseEnricherList.Add(new PsychologistEnricher());
 
             services.AddSingleton(filterOptions);
 
