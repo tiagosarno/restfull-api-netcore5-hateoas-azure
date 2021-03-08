@@ -1,8 +1,11 @@
-﻿using System;
+﻿using harmonicus.Hypermedia;
+using harmonicus.Hypermedia.Abstract;
+using System;
+using System.Collections.Generic;
 
 namespace harmonicus.Data.VO
 {
-    public class ScheduleVO
+    public class ScheduleVO : ISupportsHyperMedia
     {
         public long Id { get; set; }
 
@@ -17,5 +20,7 @@ namespace harmonicus.Data.VO
         public long Status { get; set; }
 
         public DateTime NewDate { get; set; }
+
+        public List<HyperMediaLink> Links { get; set; } = new List<HyperMediaLink>();
     }
 }
