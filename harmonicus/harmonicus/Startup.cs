@@ -49,6 +49,7 @@ namespace harmonicus
 
             filterOptions.ContentResponseEnricherList.Add(new PatientEnricher());
             filterOptions.ContentResponseEnricherList.Add(new PsychologistEnricher());
+            filterOptions.ContentResponseEnricherList.Add(new ScheduleEnricher());
 
             services.AddSingleton(filterOptions);
 
