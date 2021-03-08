@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using harmonicus.Data.VO;
+using harmonicus.Hypermedia.Filters;
 
 namespace harmonicus.Controllers
 {
@@ -20,12 +21,14 @@ namespace harmonicus.Controllers
         }
 
         [HttpGet]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get()
         {            
             return Ok(_patientBusiness.FindAll());
         }
 
         [HttpGet("{id}")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get(long id)
         {
             var patient = _patientBusiness.FindById(id);
@@ -34,6 +37,7 @@ namespace harmonicus.Controllers
         }
 
         [HttpPost]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Post([FromBody] PatientVO patient)
         {
             if (patient == null) return BadRequest();
@@ -41,6 +45,7 @@ namespace harmonicus.Controllers
         }
 
         [HttpPut]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Put([FromBody] PatientVO patient)
         {
             if (patient == null) return BadRequest();

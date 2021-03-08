@@ -12,6 +12,8 @@ using System.Collections.Generic;
 using harmonicus.Repository;
 using Serilog;
 using harmonicus.Repository.Generic;
+using harmonicus.Hypermedia.Filters;
+using harmonicus.Hypermedia.Enricher;
 
 namespace harmonicus
 {
@@ -40,6 +42,12 @@ namespace harmonicus
             {
                 MigrateDatabase(connection);
             }
+
+            var filterOptions = new HyperMediaFilterOptions();
+
+            filterOptions.ContentResponseEnricherList.Add(new PatientEnricher());
+
+            services.AddSingleton(filterOptions);
 
             // Versioning API
             services.AddApiVersioning();
@@ -75,6 +83,7 @@ namespace harmonicus
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapControllerRoute("DefaultApi", "{controller=values}/{id?}");
             });
         }
 
