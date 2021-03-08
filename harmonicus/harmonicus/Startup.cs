@@ -14,6 +14,8 @@ using Serilog;
 using harmonicus.Repository.Generic;
 using harmonicus.Hypermedia.Filters;
 using harmonicus.Hypermedia.Enricher;
+using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Rewrite;
 
 namespace harmonicus
 {
@@ -52,6 +54,21 @@ namespace harmonicus
             // Versioning API
             services.AddApiVersioning();
 
+            services.AddSwaggerGen(c => {
+                c.SwaggerDoc("v1",
+                    new OpenApiInfo
+                    { 
+                        Title = "REST APIs Harmonicus",
+                        Version = "v1",
+                        Description = "API RESTFull by Harmonicus",
+                        Contact = new OpenApiContact
+                        {
+                            Name = "Tiago Rocha Sarno",
+                            Url = new Uri("https://github.com/tiagosarno")
+                        }
+                    });
+            });
+
             // Dependency Injections
 
             // Psychologists
@@ -77,6 +94,17 @@ namespace harmonicus
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c => {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json",
+                    "REST APIs Harmonicus - v1");
+            });
+
+            var option = new RewriteOptions();
+            option.AddRedirect("^$", "swagger");
+            app.UseRewriter(option);
 
             app.UseAuthorization();
 
