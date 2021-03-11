@@ -3,11 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using harmonicus.Data.VO;
 using harmonicus.Hypermedia.Filters;
+using Microsoft.AspNetCore.Authorization;
 
 namespace harmonicus.Controllers
 {
     [ApiVersion("1")]
     [ApiController]
+    [Authorize("Bearer")]
     [Route("api/[controller]/v{version:apiVersion}")]
     public class PsychologistController : ControllerBase
     {
