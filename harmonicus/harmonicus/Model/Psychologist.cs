@@ -108,6 +108,9 @@ namespace harmonicus.Model
         [Column("commercial_state")]
         public string CommercialState { get; set; }
 
+        [Column("enabled")]
+        public bool Enabled { get; set; }
+
         public ICollection<Schedule> Schedules { get; set;  }
     }
 }

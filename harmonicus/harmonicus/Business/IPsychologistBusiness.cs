@@ -9,6 +9,7 @@ namespace harmonicus.Business
         PsychologistVO FindById(long id);
         List<PsychologistVO> FindAll();
         PsychologistVO Update(PsychologistVO psychologist);
+        PsychologistVO Disable(long id);
         void Delete(long id);
     }
 }

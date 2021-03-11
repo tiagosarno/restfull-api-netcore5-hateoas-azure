@@ -9,6 +9,7 @@ namespace harmonicus.Business
         PatientVO FindById(long id);
         List<PatientVO> FindAll();
         PatientVO Update(PatientVO patient);
+        PatientVO Disable(long id);
         void Delete(long id);
     }
 }

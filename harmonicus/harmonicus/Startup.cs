@@ -138,6 +138,10 @@ namespace harmonicus
 
             services.AddScoped<IUserRepository, UserRepository>();
 
+            services.AddScoped<IPatientRepository, PatientRepository>();
+
+            services.AddScoped<IPsychologistRepository, PsychologistRepository>();
+
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
         }
 

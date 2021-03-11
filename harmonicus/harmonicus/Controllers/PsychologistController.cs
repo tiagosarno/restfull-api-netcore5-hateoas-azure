@@ -54,6 +54,14 @@ namespace harmonicus.Controllers
             return Ok(_psychologistBusiness.Update(psychologist));
         }
 
+        [HttpPatch("{id}")]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult Patch(long id)
+        {
+            var psychologist = _psychologistBusiness.Disable(id);
+            return Ok(psychologist);
+        }
+
         [HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {

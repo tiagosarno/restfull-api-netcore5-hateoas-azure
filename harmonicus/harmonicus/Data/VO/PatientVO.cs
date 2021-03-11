@@ -48,6 +48,9 @@ namespace harmonicus.Data.VO
         public string AuthorizationTerm { get; set; }
 
         public string ResponsibleCpf { get; set; }
+
+        public bool Enabled { get; set; }
+
         public List<HyperMediaLink> Links { get; set; } = new List<HyperMediaLink>();
     }
 }
