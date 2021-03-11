@@ -75,6 +75,8 @@ namespace harmonicus.Data.VO
 
         public string CommercialState { get; set; }
 
+        public bool Enabled { get; set; }
+
         public List<HyperMediaLink> Links { get; set; } = new List<HyperMediaLink>();
     }
 }

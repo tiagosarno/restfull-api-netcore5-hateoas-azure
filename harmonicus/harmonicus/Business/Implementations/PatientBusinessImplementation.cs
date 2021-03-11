@@ -8,11 +8,11 @@ namespace harmonicus.Business.Implementations
 {
     public class PatientBusinessImplementation : IPatientBusiness
     {
-        private readonly IRepository<Patient> _repository;
+        private readonly IPatientRepository _repository;
 
         private readonly PatientConverter _converter;
 
-        public PatientBusinessImplementation(IRepository<Patient> repository)
+        public PatientBusinessImplementation(IPatientRepository repository)
         {
             _repository = repository;
             _converter = new PatientConverter();
@@ -38,6 +38,12 @@ namespace harmonicus.Business.Implementations
         {
             var patientEntity = _converter.Parse(patient);
             patientEntity = _repository.Update(patientEntity);
+            return _converter.Parse(patientEntity);
+        }
+
+        public PatientVO Disable(long id)
+        {
+            var patientEntity = _repository.Disable(id);
             return _converter.Parse(patientEntity);
         }
 

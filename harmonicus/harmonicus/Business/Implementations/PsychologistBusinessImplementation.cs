@@ -8,11 +8,11 @@ namespace harmonicus.Business.Implementations
 {
     public class PsychologistBusinessImplementation : IPsychologistBusiness
     {
-        private readonly IRepository<Psychologist> _repository;
+        private readonly IPsychologistRepository _repository;
 
         private readonly PsychologistConverter _converter;
 
-        public PsychologistBusinessImplementation(IRepository<Psychologist> repository)
+        public PsychologistBusinessImplementation(IPsychologistRepository repository)
         {
             _repository = repository;
             _converter = new PsychologistConverter();
@@ -39,6 +39,12 @@ namespace harmonicus.Business.Implementations
         {
             var psychologistEntity = _converter.Parse(psychologist);
             psychologistEntity = _repository.Update(psychologistEntity);
+            return _converter.Parse(psychologistEntity);
+        }
+
+        public PsychologistVO Disable(long id)
+        {
+            var psychologistEntity = _repository.Disable(id);
             return _converter.Parse(psychologistEntity);
         }
 

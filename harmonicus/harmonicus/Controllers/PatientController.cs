@@ -54,6 +54,14 @@ namespace harmonicus.Controllers
             return Ok(_patientBusiness.Update(patient));
         }
 
+        [HttpPatch("{id}")]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult Patch(long id)
+        {
+            var patient = _patientBusiness.Disable(id);
+            return Ok(patient);
+        }
+
         [HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {

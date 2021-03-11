@@ -68,6 +68,9 @@ namespace harmonicus.Model
 
         [Column("responsible_cpf")]
         public string ResponsibleCpf { get; set; }
+        
+        [Column("enabled")]
+        public bool Enabled { get; set; }
 
         public ICollection<Schedule> Schedules { get; set; }
     }
