@@ -2,6 +2,7 @@
 using harmonicus.Model.Context;
 using harmonicus.Repository.Generic;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace harmonicus.Repository
@@ -29,6 +30,28 @@ namespace harmonicus.Repository
                 }
             }
             return user;
+        }
+
+        public List<Patient> FindByName(string firstName, string lastName)
+        {
+            if (!string.IsNullOrWhiteSpace(firstName) && !string.IsNullOrWhiteSpace(lastName))
+            {
+                return _context.Patients.Where(
+                    p => p.FirstName.Contains(firstName)
+                    && p.LastName.Contains(lastName)).ToList();
+            }
+            else if (string.IsNullOrWhiteSpace(firstName) && !string.IsNullOrWhiteSpace(lastName))
+            {
+                return _context.Patients.Where(
+                    p => p.LastName.Contains(lastName)).ToList();
+            }
+            else if (!string.IsNullOrWhiteSpace(firstName) && string.IsNullOrWhiteSpace(lastName))
+            {
+                return _context.Patients.Where(
+                    p => p.FirstName.Contains(firstName)).ToList();
+            }
+            return null;
+
         }
     }
 }

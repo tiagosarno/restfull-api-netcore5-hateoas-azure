@@ -38,6 +38,15 @@ namespace harmonicus.Controllers
             return Ok(patient);
         }
 
+        [HttpGet("findByName")]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult Get([FromQuery] string firstName, [FromQuery] string lastName)
+        {
+            var patient = _patientBusiness.FindByName(firstName, lastName);
+            if (patient == null) return NotFound();
+            return Ok(patient);
+        }
+
         [HttpPost]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Post([FromBody] PatientVO patient)
