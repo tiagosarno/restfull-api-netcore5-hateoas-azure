@@ -27,6 +27,11 @@ namespace harmonicus.Business.Implementations
             return _converter.Parse(_repository.FindById(id));
         }
 
+        public List<PatientVO> FindByName(string firstName, string lastName)
+        {
+            return _converter.Parse(_repository.FindByName(firstName, lastName));
+        }
+
         public PatientVO Create(PatientVO patient)
         {
             var patientEntity = _converter.Parse(patient);

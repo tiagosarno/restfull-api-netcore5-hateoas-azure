@@ -28,6 +28,11 @@ namespace harmonicus.Business.Implementations
             return _converter.Parse(_repository.FindById(id));
         }
 
+        public List<PsychologistVO> FindByName(string name)
+        {
+            return _converter.Parse(_repository.FindByName(name));
+        }
+
         public PsychologistVO Create(PsychologistVO psychologist)
         {
             var psychologistEntity = _converter.Parse(psychologist);

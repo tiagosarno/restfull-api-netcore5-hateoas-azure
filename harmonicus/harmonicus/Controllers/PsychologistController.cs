@@ -38,6 +38,15 @@ namespace harmonicus.Controllers
             return Ok(psychologist);
         }
 
+        [HttpGet("findByName")]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult Get([FromQuery] string name)
+        {
+            var psychologist = _psychologistBusiness.FindByName(name);
+            if (psychologist == null) return NotFound();
+            return Ok(psychologist);
+        }
+
         [HttpPost]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Post([FromBody] PsychologistVO psychologist)

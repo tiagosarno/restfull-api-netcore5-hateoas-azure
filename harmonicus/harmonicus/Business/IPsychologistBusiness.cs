@@ -7,6 +7,7 @@ namespace harmonicus.Business
     {
         PsychologistVO Create(PsychologistVO psychologist);
         PsychologistVO FindById(long id);
+        List<PsychologistVO> FindByName(string name);
         List<PsychologistVO> FindAll();
         PsychologistVO Update(PsychologistVO psychologist);
         PsychologistVO Disable(long id);

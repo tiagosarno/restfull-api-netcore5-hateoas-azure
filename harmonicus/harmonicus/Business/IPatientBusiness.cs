@@ -7,6 +7,7 @@ namespace harmonicus.Business
     {
         PatientVO Create(PatientVO patient);
         PatientVO FindById(long id);
+        List<PatientVO> FindByName(string firstName, string lastName);
         List<PatientVO> FindAll();
         PatientVO Update(PatientVO patient);
         PatientVO Disable(long id);
