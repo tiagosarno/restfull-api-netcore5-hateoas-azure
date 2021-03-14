@@ -7,7 +7,7 @@ namespace harmonicus.Data.VO
 {
     public class ScheduleVO : ISupportsHyperMedia
     {
-        public long Id { get; set; }
+        public Guid Id { get; set; }
 
         public DateTime Date { get; set; }
 

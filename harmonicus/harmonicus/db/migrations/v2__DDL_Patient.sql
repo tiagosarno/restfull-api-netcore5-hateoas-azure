@@ -1,13 +1,13 @@
 -- harmonicus.patient definition
 
 CREATE TABLE `patient` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
+  `id` char(36) NOT NULL,
   `first_name` varchar(80) NOT NULL,
   `last_name` varchar(80) NOT NULL,
   `email` varchar(160) NOT NULL,
   `cpf` varchar(11) NOT NULL,
   `address` varchar(100) DEFAULT NULL,
-  `gender` varchar(6) NOT NULL,
+  `gender` char(1) NOT NULL,
   `phone` bigint DEFAULT NULL,
   `phone_is_whatsapp` int DEFAULT NULL,
   `how_find_harmonicus` varchar(100) DEFAULT NULL,
@@ -21,6 +21,7 @@ CREATE TABLE `patient` (
   `birth_date` date DEFAULT NULL,
   `status` int DEFAULT NULL,
   `authorization_term` varchar(150) DEFAULT NULL,
-  `responsible_cpf` varchar(11) DEFAULT NULL,
+  `responsible_cpf` varchar(150) DEFAULT NULL,
+  `enabled` BIT(1) NOT NULL DEFAULT b'1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+);

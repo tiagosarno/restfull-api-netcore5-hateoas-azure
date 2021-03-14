@@ -1,6 +1,7 @@
 ﻿using harmonicus.Data.VO;
 using harmonicus.Hypermedia.Constants;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -53,7 +54,7 @@ namespace harmonicus.Hypermedia.Enricher
             return null;
         }
 
-        private string GetLink(long id, IUrlHelper urlHelper, string path)
+        private string GetLink(Guid id, IUrlHelper urlHelper, string path)
         {
             lock (_lock)
             {
