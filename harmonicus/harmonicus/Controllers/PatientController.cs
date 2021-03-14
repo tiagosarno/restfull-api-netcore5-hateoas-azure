@@ -22,11 +22,15 @@ namespace harmonicus.Controllers
             _patientBusiness = patientBusiness;
         }
 
-        [HttpGet]
+        [HttpGet("{sortDirection}/{pageSize}/{page}")]
         [TypeFilter(typeof(HyperMediaFilter))]
-        public IActionResult Get()
+        public IActionResult Get(
+            [FromQuery] string name,
+            string sortDirection,
+            int pageSize,
+            int page)
         {            
-            return Ok(_patientBusiness.FindAll());
+            return Ok(_patientBusiness.FindWithPagedSearch(name, sortDirection, pageSize, page));
         }
 
         [HttpGet("{id}")]
