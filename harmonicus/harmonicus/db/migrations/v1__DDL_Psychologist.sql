@@ -1,7 +1,7 @@
 -- harmonicus.psychologist definition
 
 CREATE TABLE `psychologist` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
+  `id` char(36) NOT NULL,
   `account_status` int DEFAULT NULL,
   `registration_date` datetime DEFAULT NULL,
   `name` varchar(160) DEFAULT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE `psychologist` (
   `know_google_meeting` int DEFAULT NULL,
   `know_skype` int DEFAULT NULL,
   `city` varchar(140) DEFAULT NULL,
-  `state` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `state` varchar(40) DEFAULT NULL,
   `country` varchar(70) DEFAULT NULL,
   `avatar` varchar(150) DEFAULT NULL,
   `birth_date` date DEFAULT NULL,
@@ -33,7 +33,8 @@ CREATE TABLE `psychologist` (
   `commercial_street` varchar(100) DEFAULT NULL,
   `commercial_street_add_on` varchar(100) DEFAULT NULL,
   `commercial_district` varchar(100) DEFAULT NULL,
-  `commercial_city` varchar(70) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `commercial_state` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `commercial_city` varchar(70) DEFAULT NULL,
+  `commercial_state` varchar(40) DEFAULT NULL,
+  `enabled` BIT(1) NOT NULL DEFAULT b'1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+);

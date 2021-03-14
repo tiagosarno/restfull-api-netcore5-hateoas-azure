@@ -7,7 +7,7 @@ namespace harmonicus.Data.VO
 {
     public class PsychologistVO : ISupportsHyperMedia
     {
-        public long Id { get; set; }
+        public Guid Id { get; set; }
 
         public int AccountStatus { get; set; }
 
