@@ -24,6 +24,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.AspNetCore.Http;
 
 namespace harmonicus
 {
@@ -121,6 +123,8 @@ namespace harmonicus
 
             // Dependency Injections
 
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             // Psychologists
             services.AddScoped<IPsychologistBusiness, PsychologistBusinessImplementation>();
 
@@ -132,6 +136,7 @@ namespace harmonicus
 
             // User
             services.AddScoped<ILoginBusiness, LoginBusinessImplementation>();
+            services.AddScoped<IFileBusiness, FileBusinessImplementation>();
 
             // Authentication
             services.AddTransient<ITokenService, TokenService>();
