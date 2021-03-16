@@ -89,11 +89,11 @@ namespace harmonicus
 
             var connection = Configuration["MySQLConnection:MySQLConnectionString"];
             services.AddDbContext<MySQLContext>(options => options.UseMySql(connection));
-
-            if (Enviroment.IsDevelopment())
-            {
-                MigrateDatabase(connection);
-            }
+            
+            //if (Enviroment.IsDevelopment())
+            //{
+            //    MigrateDatabase(connection);
+            //}
 
             var filterOptions = new HyperMediaFilterOptions();
 
