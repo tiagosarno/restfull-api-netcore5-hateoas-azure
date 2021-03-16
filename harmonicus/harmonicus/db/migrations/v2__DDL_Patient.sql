@@ -1,5 +1,3 @@
--- harmonicus.patient definition
-
 CREATE TABLE `patient` (
   `id` char(36) NOT NULL,
   `first_name` varchar(80) NOT NULL,

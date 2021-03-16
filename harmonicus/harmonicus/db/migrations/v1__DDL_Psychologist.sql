@@ -1,5 +1,3 @@
--- harmonicus.psychologist definition
-
 CREATE TABLE `psychologist` (
   `id` char(36) NOT NULL,
   `account_status` int DEFAULT NULL,
