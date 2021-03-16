@@ -11,7 +11,7 @@ namespace harmonicus.Repository
     {
         public PsychologistRepository(MySQLContext context) : base(context) { }
 
-        public Psychologist Disable(long id)
+        public Psychologist Disable(Guid id)
         {
             if (!_context.Psychologists.Any(p => p.Id.Equals(id))) return null;
             var user = _context.Psychologists.SingleOrDefault(p => p.Id.Equals(id));

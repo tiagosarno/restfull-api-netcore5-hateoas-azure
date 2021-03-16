@@ -11,7 +11,7 @@ namespace harmonicus.Repository
     {
         public PatientRepository(MySQLContext context) : base(context) { }
 
-        public Patient Disable(long id)
+        public Patient Disable(Guid id)
         {
             if (!_context.Patients.Any(p => p.Id.Equals(id))) return null;
             var user = _context.Patients.SingleOrDefault(p => p.Id.Equals(id));

@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using harmonicus.Data.VO;
 using harmonicus.Hypermedia.Filters;
 using Microsoft.AspNetCore.Authorization;
+using System;
 
 namespace harmonicus.Controllers
 {
@@ -31,7 +32,7 @@ namespace harmonicus.Controllers
 
         [HttpGet("{id}")]
         [TypeFilter(typeof(HyperMediaFilter))]
-        public IActionResult Get(long id)
+        public IActionResult Get(Guid id)
         {
             var schedule = _scheduleBusiness.FindById(id);
             if (schedule == null) return NotFound();
@@ -55,7 +56,7 @@ namespace harmonicus.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(long id)
+        public IActionResult Delete(Guid id)
         {
             _scheduleBusiness.Delete(id);
             return NoContent();

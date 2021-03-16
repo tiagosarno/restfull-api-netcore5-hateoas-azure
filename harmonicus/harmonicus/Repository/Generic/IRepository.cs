@@ -1,4 +1,5 @@
 ﻿using harmonicus.Model.Base;
+using System;
 using System.Collections.Generic;
 
 namespace harmonicus.Repository
@@ -6,11 +7,11 @@ namespace harmonicus.Repository
     public interface IRepository<T> where T : BaseEntity
     {
         T Create(T item);
-        T FindById(long id);
+        T FindById(Guid id);
         List<T> FindAll();
         T Update(T item);
-        void Delete(long id);
-        bool Exists(long id);
+        void Delete(Guid id);
+        bool Exists(Guid id);
         List<T> FindWithPagedSearch(string query);
         int GetCount(string query);
     }
