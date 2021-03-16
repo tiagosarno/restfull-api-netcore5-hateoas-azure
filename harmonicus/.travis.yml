@@ -1,0 +1,24 @@
+sudo: required
+dist: bionic
+language: csharp
+mono: none
+dotnet:5.0
+services: docker
+before_install:
+  - cd harmonicus/
+  - echo "In the right folder!"
+script:
+  - docker-compose build
+before_deploy:
+  - echo "#DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+deploy:
+  provider: script
+  script:
+    docker tag harmonicus-db:latest $DOCKER_USERNAME/harmonicus-db:$TRAVIS_JOB_ID;
+    docker tag harmonicus:dev $DOCKER_USERNAME/harmonicus:$TRAVIS_JOB_ID;
+    docker push $DOCKER_USERNAME/harmonicus:$TRAVIS_JOB_ID;
+    docker push $DOCKER_USERNAME/harmonicus-db:$TRAVIS_JOB_ID;
+  on:
+    branch: master
+notifications:
+  email: false
