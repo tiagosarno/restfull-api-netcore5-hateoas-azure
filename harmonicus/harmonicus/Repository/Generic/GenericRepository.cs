@@ -24,7 +24,7 @@ namespace harmonicus.Repository.Generic
             return dataset.ToList();
         }
 
-        public T FindById(long id)
+        public T FindById(Guid id)
         {
             return dataset.SingleOrDefault(p => p.Id.Equals(id));
         }
@@ -68,7 +68,7 @@ namespace harmonicus.Repository.Generic
             }
         }
 
-        public void Delete(long id)
+        public void Delete(Guid id)
         {
             var result = dataset.SingleOrDefault(p => p.Id.Equals(id));
 
@@ -87,7 +87,7 @@ namespace harmonicus.Repository.Generic
             }
         }
 
-        public bool Exists(long id)
+        public bool Exists(Guid id)
         {
             return dataset.Any(p => p.Id.Equals(id));
         }

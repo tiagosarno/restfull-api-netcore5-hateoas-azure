@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using harmonicus.Data.VO;
 using harmonicus.Hypermedia.Filters;
 using Microsoft.AspNetCore.Authorization;
+using System;
 
 namespace harmonicus.Controllers
 {
@@ -35,7 +36,7 @@ namespace harmonicus.Controllers
 
         [HttpGet("{id}")]
         [TypeFilter(typeof(HyperMediaFilter))]
-        public IActionResult Get(long id)
+        public IActionResult Get(Guid id)
         {
             var patient = _patientBusiness.FindById(id);
             if (patient == null) return NotFound();
@@ -69,14 +70,14 @@ namespace harmonicus.Controllers
 
         [HttpPatch("{id}")]
         [TypeFilter(typeof(HyperMediaFilter))]
-        public IActionResult Patch(long id)
+        public IActionResult Patch(Guid id)
         {
             var patient = _patientBusiness.Disable(id);
             return Ok(patient);
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(long id)
+        public IActionResult Delete(Guid id)
         {
             _patientBusiness.Delete(id);
             return NoContent();

@@ -1,8 +1,8 @@
 ﻿using harmonicus.Data.Converter.Implementations;
 using harmonicus.Data.VO;
 using harmonicus.Hypermedia.Utils;
-using harmonicus.Model;
 using harmonicus.Repository;
+using System;
 using System.Collections.Generic;
 
 namespace harmonicus.Business.Implementations
@@ -24,7 +24,7 @@ namespace harmonicus.Business.Implementations
             return _converter.Parse(_repository.FindAll());
         }
 
-        public PsychologistVO FindById(long id)
+        public PsychologistVO FindById(Guid id)
         {
             return _converter.Parse(_repository.FindById(id));
         }
@@ -75,13 +75,13 @@ namespace harmonicus.Business.Implementations
             return _converter.Parse(psychologistEntity);
         }
 
-        public PsychologistVO Disable(long id)
+        public PsychologistVO Disable(Guid id)
         {
             var psychologistEntity = _repository.Disable(id);
             return _converter.Parse(psychologistEntity);
         }
 
-        public void Delete(long id)
+        public void Delete(Guid id)
         {
             _repository.Delete(id);
         }
