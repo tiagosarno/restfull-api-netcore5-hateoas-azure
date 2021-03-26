@@ -15,8 +15,8 @@ deploy:
   provider: script
   script:
     docker tag harmonicus-db:latest $DOCKER_USERNAME/harmonicus-db:$TRAVIS_JOB_ID;
-    docker tag harmonicus:dev $DOCKER_USERNAME/harmonicus:$TRAVIS_JOB_ID;
-    docker push $DOCKER_USERNAME/harmonicus:$TRAVIS_JOB_ID;
+    docker tag harmonicus-application:dev $DOCKER_USERNAME/harmonicus-application:$TRAVIS_JOB_ID;
+    docker push $DOCKER_USERNAME/harmonicus-application:$TRAVIS_JOB_ID;
     docker push $DOCKER_USERNAME/harmonicus-db:$TRAVIS_JOB_ID;
   on:
     branch: master

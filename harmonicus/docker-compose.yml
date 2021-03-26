@@ -20,7 +20,7 @@ services:
       - harmonicus-network
     
   harmonicus:
-    image: harmonicus
+    image: harmonicus-application
     build:
       context: .
       dockerfile: harmonicus/Dockerfile
