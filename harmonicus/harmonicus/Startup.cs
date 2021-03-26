@@ -110,7 +110,7 @@ namespace harmonicus
                 c.SwaggerDoc("v1",
                     new OpenApiInfo
                     { 
-                        Title = "REST APIs Harmonicus",
+                        Title = "REST APIs Harmonicus - Azure",
                         Version = "v1",
                         Description = "API RESTFull by Harmonicus",
                         Contact = new OpenApiContact
